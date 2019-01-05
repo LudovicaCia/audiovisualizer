@@ -1,0 +1,30 @@
+ body{
+		    width: 100%;
+			height: 900px;
+            margin: 0;
+            padding: 0;
+			background: linear-gradient(to bottom, rgba(77, 4, 34, 1) 0%,rgba(216, 186, 253, 1) 100%);
+			background-repeat: no-repeat;
+				}
+		h1{
+		    font-size: 50px;
+		    font-family: "Bebas Neue";
+			text-align: center;
+		}
+		input[type=button]{
+		     background-color: #B36A88;
+		     font-size: 24px;
+		     font-family: "Bebas Neue";
+		     padding: 14px 40px;
+		     border-radius: 12px;
+		     width: 50%;
+		     border-top-width: 0px;
+             border-bottom-width: 0px;
+             border-right-width: 0px;
+             border-left-width: 0px;
+		     position: relative;
+			 left: 25%;
+	     	}
+        body{
+            overflow: hidden;
+        }
