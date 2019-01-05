@@ -1,5 +1,5 @@
 var  center_x, center_y, radius,  
-    x_end, y_end, bar_height;
+    x_end, y_end, bar_height, bufferLength, dataArray;
   
 function Playsound(){
     context = new (window.AudioContext || window.webkitAudioContext)();
@@ -10,10 +10,9 @@ function Playsound(){
     source.connect(analyser);
     analyser.connect(context.destination);
     analyser.fftSize=256;
-	const bufferLength=analyser.frequencyBinCount;
-	const dataArray = new Float32Array(bufferLength);
+	 bufferLength=analyser.frequencyBinCount;
+	 dataArray = new Float32Array(bufferLength);
    
-
     audio.play();
     animationLooper();
 }
@@ -66,3 +65,4 @@ function animationLooper(){
      draw();    
  
 }
+
