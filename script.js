@@ -28,9 +28,8 @@ function animationLooper(){
     // find the center of the window
     center_x = canvas.width / 2;
     center_y = canvas.height / 2;
-    radius = 0;
 	var color=240;
-    
+    var radius=0; 
     // style the background
     var gradient = ctx.createLinearGradient(0,0,0,canvas.height);
         gradient.addColorStop(0,"rgba(77, 4, 34, 1)");
@@ -44,23 +43,22 @@ function animationLooper(){
 	  analyser.getFloatFrequencyData(dataArray); 
 	  
 	  ctx.fillStyle='hsl(' + color++ + ', 100%, 50%)';
-	
+	   ctx.beginPath();
+	   ctx.arc(center_x, center_y, radius,0,2*Math.PI,false);
+       ctx.fill();
 	  for (i=0; i<bufferLength; i++){
-		  radius=(dataArray[i]+20)*2;
-		  ctx.beginPath();
-		  ctx.arc(center_x, center_y, radius,0,2*Math.PI,false);
-		   if (radius > Math.max.apply(Math,dataArray)){
-			 ctx.fill();
-		     radius-=1;
-			 requestAnimationFrame(draw);
-		   } else{
-		  ctx.fill();
-          radius +=1;
-		  
-	      }
-		 
-	 
-	   }
+		  radius=(dataArray[i]+200)*2;
+		  if (radius < Math.max.apply(null,dataArray)){ 
+	      radius +=1;
+		   }else if (radius==dataArray[0]){
+			   radius=0;
+		   }else{
+		  radius-=1;
+		  break;
+	  }
+		   
+		}  
+	   requestAnimationFrame(draw);
 	}
      draw();    
  
